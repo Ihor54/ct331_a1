@@ -32,8 +32,8 @@ listElement* createEl(char* data, size_t size){
 }
 
 //Prints out each element in the list
-void traverse(listElement* start){
-  listElement* current = start;
+void traverse(listElement* head){
+  listElement* current = head;
   while(current != NULL){
     printf("%s\n", current->data);
     current = current->next;
@@ -73,26 +73,46 @@ int length(listElement* list){
 }
 
 // Push a new element onto the head of a list.
-// Update the list reference using side effects.
-//(See: swap() from lecture 3)
 void push(listElement** list, char* data, size_t size){
-  listElement* newEl = createEl(data, size);
-  newEl->next = *list;
-  *list = newEl;
+  if (*list == NULL){
+    *list = createEl(data, size);
+  }
+  else{
+    listElement* newEl = createEl(data, size);
+    newEl->next = *list;
+    *list = newEl;
+  }
 }
 
 // Pop an element from the head of a list.
-//Update the list reference using side effects.
-//???
-listElement* pop(listElement** list){
-  listElement* head = *list;
-  free(head->data);
-  free(head);
-  *list = (*list)->next;
+listElement* pop(listElement** head){
+  if (*head != NULL){
+    listElement* NewEl = (*head)->next;
+    *head = (*head)->next;
+    return NewEl;
+  }
+  return *head;
 }
 
+//Enqueue a new element onto the head of the list.
 void enqueue(listElement** list, char* data, size_t size){
-  listElement* newEl = createEl(data, size);
-  newEl->next = *list;
-  *list = newEl;
+  if (*list == NULL){
+    *list = createEl(data, size);
+  }
+  else{
+    listElement* newEl = createEl(data, size);
+    newEl->next = *list;
+    *list = newEl;
+  }
+}
+
+//Dequeue an element from the tail of the list.
+listElement* dequeue(listElement* list){
+  listElement* temp = list;
+  while (temp->next->next != NULL) {
+    temp = temp->next;
+  }
+  listElement* last = temp->next;
+  temp->next = NULL;
+  return last;
 }
