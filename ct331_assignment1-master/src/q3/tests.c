@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "tests.h"
 #include "genericLinkedList.h"
 
 void runTests(){
