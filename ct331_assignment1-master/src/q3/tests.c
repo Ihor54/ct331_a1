@@ -32,7 +32,7 @@ void runTests(){
   printf("\n");
 
   float i = 12.5;
-  enqueue(&l, &i, sizeof(float), printFloat);
+  enqueue(&l, &i, sizeof(float), &printFloat);
   traverse(l);
   printf("\n");
 
