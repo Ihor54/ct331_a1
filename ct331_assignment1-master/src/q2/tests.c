@@ -26,11 +26,11 @@ void runTests(){
   printf("%d\n\n", num);
 
 
-  push(&l, "a final last string (4)", 30);
+  enqueue(&l, "a final last string (4)", 30);
   traverse(l);
 
   printf("\n");
-  printf("%s\n", pop(&l));
+  pop(&l);
   traverse(l);
 
   printf("\n");

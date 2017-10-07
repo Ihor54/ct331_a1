@@ -7,7 +7,7 @@
 void runTests(){
   printf("Tests running...\n");
 
-  genericlistElement* l = createEl("First test string", 30, &printStr);
+  genericlistElement* l = createEl("First test string", 30, printStr);
   traverse(l);
   printf("\n" );
 
