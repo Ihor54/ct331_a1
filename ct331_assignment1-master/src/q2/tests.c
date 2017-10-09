@@ -25,22 +25,23 @@ void runTests(){
   int num = length(l2);
   printf("%d\n\n", num);
 
-
+  //Test enqueue
   enqueue(&l, "a final last string (4)", 30);
   traverse(l);
-
   printf("\n");
+
+  //Test pop
   pop(&l);
   traverse(l);
-
   printf("\n");
 
+  //Test push
   push(&l, "a final last string (4)", 30);
   traverse(l);
   printf("\n");
 
+  //Test dequeue
   dequeue(l);
   traverse(l);
-
   printf("\nTests complete.\n");
 }

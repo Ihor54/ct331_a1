@@ -37,7 +37,8 @@ void traverse(genericlistElement* head){
 
 //Inserts a new element after the given el
 //Returns the pointer to the new element
-genericlistElement* insertAfter(genericlistElement* el, void* data, size_t size, printFn print){
+genericlistElement* insertAfter(genericlistElement* el, void* data,
+                                size_t size, printFn print){
   genericlistElement* newEl = createEl(data, size, print);
   genericlistElement* next = el->next;
   newEl->next = next;
@@ -89,7 +90,8 @@ genericlistElement* pop(genericlistElement** head){
 }
 
 //Enqueue a new element onto the head of the list.
-void enqueue(genericlistElement** list, void* data, size_t size, printFn print){
+void enqueue(genericlistElement** list, void* data,
+                  size_t size, printFn print){
   if (*list == NULL){
     *list = createEl(data, size, print);
   }
